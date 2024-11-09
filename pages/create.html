@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../src/output.css" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  
     <title>Create</title>
   </head>
@@ -151,7 +152,7 @@
                 <button
                   type="button"
                   id="next-1"
-                  onclick="validateForm(event)"
+                  
                   class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                 >
                   Next
@@ -176,7 +177,7 @@
                   placeholder="Job Title"
                   required
                 />
-                <div id="job-title-error" class="error hidden">Please enter a valid job title.</div>
+                <div id="job-title-error" class="error hidden text-red-700 text-sm">Please enter a valid job title.</div>
               </div>
               <div class="mb-4">
                 <label
@@ -432,6 +433,9 @@
                       placeholder="Write an article..."
                       required
                     ></textarea>
+                    <div id="editor-error" class="text-red-700 text-sm hidden">
+                      Please write something before submitting.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -445,7 +449,7 @@
                 </button>
                 <button
                   type="button"
-                  id="next-4"
+                  id="next-2"
                   class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                 >
                   Next
