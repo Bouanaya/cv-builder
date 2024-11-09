@@ -117,6 +117,38 @@ addSoftSkillButton.addEventListener('click', () => {
 });
 
 
+  const form = document.getElementById('languages-form');
+  const addLanguageButton = document.getElementById('add-language');
+  const languagesContainer = document.getElementById('languages');
 
- 
+  // Add new input field for languages
+  addLanguageButton.addEventListener('click', function() {
+      // Create new language input field
+      const newInput = document.createElement('input');
+      newInput.type = 'text';
+      newInput.name = 'language[]';
+      newInput.className = 'bg-gray-50 border  w-full my-2 border-gray-300 text-gray-900 text-sm rounded-lg';
+      newInput.placeholder = 'Language';
+      newInput.required = true;
+      
+      // Create new select for language level
+      const newSelect = document.createElement('select');
+      newSelect.name = 'language-level[]';
+      newSelect.className = 'block bg-gray-50 border w-full   mx-4 border-gray-300 text-gray-900 text-sm rounded-lg my-2';
+      newSelect.required = true;
+      
+     
+      const levels = ['Beginner', 'Intermediate', 'Advanced', 'Native'];
+      levels.forEach(level => {
+          const option = document.createElement('option');
+          option.value = level;
+          option.textContent = level;
+          newSelect.appendChild(option);
+      });
+
+      
+      languagesContainer.appendChild(newInput);
+      languagesContainer.appendChild(newSelect);
+
+    })
  

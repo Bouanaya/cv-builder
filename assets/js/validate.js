@@ -122,9 +122,9 @@ const valtechnicalSkills = () => {
         return;
     }
 
-    if (!hasSoftSkill) {
+    
         return true
-    }
+ 
 
 
 };
