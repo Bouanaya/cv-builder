@@ -24,8 +24,8 @@ var data = []
       linkedin,
       github
   };
-
-  data.push(formData)
+ 
+  data.push(formData) 
   console.log(data);
   
 }
@@ -40,15 +40,15 @@ const showStep = (stepIndex) => {
 };
 
 nextButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        if (validateForm()) {
-            if (currentStep < steps.length - 1) {
-                currentStep++;
-                showStep(currentStep);
-                DataInformationpersonnel()
-            }
-        }
-    });
+  button.addEventListener('click', () => {
+      if (validateForm()) {
+          if (currentStep < steps.length - 1) {
+              currentStep++;
+              showStep(currentStep);
+              DataInformationpersonnel()
+          }
+      }
+  });
 });
 
 prevButtons.forEach(button => {
