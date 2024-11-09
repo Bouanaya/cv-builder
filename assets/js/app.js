@@ -152,3 +152,17 @@ addSoftSkillButton.addEventListener('click', () => {
 
     })
  
+
+    
+btnNext4.addEventListener("click", ()=>{
+ 
+  
+  if (validlanguage()) {
+    console.log('next4');
+    if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+       
+    }
+}
+})

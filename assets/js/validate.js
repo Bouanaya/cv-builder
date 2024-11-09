@@ -128,3 +128,27 @@ const valtechnicalSkills = () => {
 
 
 };
+
+const validlanguage =()=>{
+    // Get  language inputs
+    const languages = document.querySelector('input[name="language"]');
+        
+ 
+ 
+
+// Alert if no language is entered
+if (languages.value === "") {
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please add at least one language !",
+        footer: '<a href="#">Why do I have this issue?</a>'
+    });
+  
+    return;
+}
+
+ return true;
+}
+
+
