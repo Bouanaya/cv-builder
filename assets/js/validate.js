@@ -122,53 +122,79 @@ const valtechnicalSkills = () => {
         return;
     }
 
-    
-        return true
- 
+
+    return true
+
 
 
 };
 
-const validlanguage =()=>{
+const validlanguage = () => {
     // Get  language inputs
     const languages = document.querySelector('input[name="language"]');
-        
- 
- 
 
-// Alert if no language is entered
-if (languages.value === "") {
-    Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please add at least one language !",
-        footer: '<a href="#">Why do I have this issue?</a>'
-    });
-  
-    return;
-}
 
- return true;
+
+
+    // Alert if no language is entered
+    if (languages.value.trim() === "") {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please add at least one language !",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
+
+        return;
+    }
+
+    return true;
 }
-const validhobbies =()=>{
+const validhobbies = () => {
     // Get  language inputs
     const hobbies = document.querySelector('input[name="hobbies[]"]');
-        
- 
+
+
+
+
+    // Alert if no language is entered
+    if (hobbies.value.trim() === "") {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please add at least one hobbies !",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
+
+        return;
+    }
+
+    return true;
+}
+const validEducation = () => {
+    const allInputs = document.querySelectorAll('#education input');
  
 
-// Alert if no language is entered
-if (hobbies.value === "") {
-    Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please add at least one language !",
-        footer: '<a href="#">Why do I have this issue?</a>'
+    allInputs.forEach(input => {
+        if (input.value.trim() !== "") {
+console.log('hello');
+
+         
+
+
+        }
+        else if (input.value.trim() === '') {
+
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please fill out all education fields.!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+
+
+        }
     });
-  
-    return;
-}
 
- return true;
-}
 
+}
