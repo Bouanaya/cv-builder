@@ -166,3 +166,21 @@ btnNext4.addEventListener("click", ()=>{
     }
 }
 })
+
+
+  // Get form and buttons
+  const addHobbyButton = document.getElementById('add-hobby');
+  const hobbiesContainer = document.getElementById('hobbies');
+
+  // Add new input  for hobbies
+  addHobbyButton.addEventListener('click', function() {
+      // Create new hobby input  
+      const newInput = document.createElement('input');
+      newInput.type = 'text';
+      newInput.name = 'hobbies[]';
+      newInput.className = 'bg-gray-50 w-full border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg';
+      newInput.placeholder = 'Hobby';
+      newInput.required = true;
+
+      // Append new input to the container
+      hobbiesContainer.appendChild(newInput);})
