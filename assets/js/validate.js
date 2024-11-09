@@ -150,5 +150,25 @@ if (languages.value === "") {
 
  return true;
 }
+const validhobbies =()=>{
+    // Get  language inputs
+    const hobbies = document.querySelector('input[name="hobbies[]"]');
+        
+ 
+ 
 
+// Alert if no language is entered
+if (hobbies.value === "") {
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please add at least one language !",
+        footer: '<a href="#">Why do I have this issue?</a>'
+    });
+  
+    return;
+}
+
+ return true;
+}
 

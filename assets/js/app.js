@@ -184,3 +184,16 @@ btnNext4.addEventListener("click", ()=>{
 
       // Append new input to the container
       hobbiesContainer.appendChild(newInput);})
+
+      btnNext5.addEventListener("click", ()=>{
+ 
+  
+        if (validhobbies()) {
+          console.log('next5');
+          if (currentStep < steps.length - 1) {
+              currentStep++;
+              showStep(currentStep);
+             
+          }
+      }
+      })
