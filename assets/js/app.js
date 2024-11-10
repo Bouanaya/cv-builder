@@ -27,6 +27,10 @@ const DataInformationpersonnel = () => {
   const jobTitle = document.getElementById("job-title").value
   const editor = document.getElementById('editor').value
  
+ 
+ 
+ 
+
 
 
 
@@ -41,6 +45,9 @@ const DataInformationpersonnel = () => {
     github,
     jobTitle,
     editor,
+    
+ 
+    
      
 
 
@@ -111,6 +118,8 @@ btnNext4.addEventListener("click", () => {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
+      DataInformationpersonnel()
+
      
 
     }

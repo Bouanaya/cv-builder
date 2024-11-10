@@ -192,6 +192,7 @@ if (!allFilled) {
         text: "Please add at least one hobbies !",
         footer: '<a href="#">Why do I have this issue?</a>'
     });
+    return validhobbies
 }
 
 return true
