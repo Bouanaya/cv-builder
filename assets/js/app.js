@@ -12,7 +12,7 @@ const btnNext4 = document.querySelector("#next-4")
 const btnNext5 = document.querySelector("#next-5")
 const btnNext6 = document.querySelector("#next-6")
 const btnNext7 = document.querySelector("#next-7")
-const submitforms = document.querySelector("#submit")
+const btnNext8 = document.querySelector("#next-8")
 const progressIncrement = 100 / steps.length;
 var data = []
 // //      // Form data  DataInformationpersonnel
@@ -157,7 +157,20 @@ btnNext7.addEventListener("click", () => {
 
 
   if ("valid") {
-    console.log('next7');
+  
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+
+    }
+  }
+})
+
+btnNext8.addEventListener("click", () => {
+
+
+  if ("valid") {
+    console.log('next8');
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
