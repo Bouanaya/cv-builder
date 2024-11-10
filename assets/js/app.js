@@ -24,6 +24,12 @@ const DataInformationpersonnel = () => {
   const website = document.getElementById('website').value;
   const linkedin = document.getElementById('linkedin').value;
   const github = document.getElementById('github').value;
+  const jobTitle = document.getElementById("job-title").value
+  const editor = document.getElementById('editor').value
+ 
+
+
+
 
   const formData = {
     fullName,
@@ -32,13 +38,19 @@ const DataInformationpersonnel = () => {
     phone,
     website,
     linkedin,
-    github
+    github,
+    jobTitle,
+    editor,
+     
+
+
   };
 
   data.push(formData)
   console.log(data);
 
 }
+
 
 const showStep = (stepIndex) => {
   steps.forEach((step, index) => {
@@ -52,7 +64,8 @@ btnNext1.addEventListener("click", () => {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
-      DataInformationpersonnel()
+     
+
     }
   }
 })
@@ -61,6 +74,7 @@ btnNext2.addEventListener("click", () => {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
+    
 
     }
   }
@@ -75,6 +89,7 @@ btnNext3.addEventListener("click", () => {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
+     
 
     }
   }
@@ -85,10 +100,62 @@ prevButtons.forEach(button => {
     if (currentStep > 0) {
       currentStep--;
       showStep(currentStep);
+
     }
   });
 });
 
+btnNext4.addEventListener("click", () => {
+  if (validlanguage()) {
+
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+     
+
+    }
+  }
+});
+
+btnNext5.addEventListener("click", () => {
+
+
+  if (validhobbies()) {
+
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+      DataInformationpersonnel()
+
+    }
+  }
+})
+
+
+btnNext6.addEventListener("click", () => {
+
+
+  if (validEducation()) {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+
+    }
+  }
+})
+
+btnNext7.addEventListener("click", () => {
+
+
+  if ("valid") {
+    console.log('next7');
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+
+    }
+  }
+})
 showStep(currentStep);
 
 
@@ -116,12 +183,12 @@ addSoftSkillButton.addEventListener('click', () => {
   softSkillsContainer.appendChild(newInput);
 });
 
-
+// Add new input for languages
 const form = document.getElementById('languages-form');
 const addLanguageButton = document.getElementById('add-language');
 const languagesContainer = document.getElementById('languages');
 
-// Add new input field for languages
+
 addLanguageButton.addEventListener('click', function () {
   // Create new language input field
   const newInput = document.createElement('input');
@@ -144,8 +211,9 @@ addLanguageButton.addEventListener('click', function () {
     option.value = level;
     option.textContent = level;
     newSelect.appendChild(option);
-  });
 
+
+  });
 
   languagesContainer.appendChild(newInput);
   languagesContainer.appendChild(newSelect);
@@ -154,21 +222,9 @@ addLanguageButton.addEventListener('click', function () {
 
 
 
-btnNext4.addEventListener("click", () => {
 
 
-  if (validlanguage()) {
-    
-    if (currentStep < steps.length - 1) {
-      currentStep++;
-      showStep(currentStep);
-
-    }
-  }
-})
-
-
-// Get form and buttons
+ //add hobbies 
 const addHobbyButton = document.getElementById('add-hobby');
 const hobbiesContainer = document.getElementById('hobbies');
 
@@ -186,20 +242,9 @@ addHobbyButton.addEventListener('click', function () {
   hobbiesContainer.appendChild(newInput);
 })
 
-btnNext5.addEventListener("click", () => {
+ 
 
-
-  if (validhobbies()) {
-     
-    if (currentStep < steps.length - 1) {
-      currentStep++;
-      showStep(currentStep);
-
-    }
-  }
-})
-
-
+// add input education 
 const addEducationButton = document.getElementById('add-education');
 const educationContainer = document.getElementById('education');
 var count = 0
@@ -243,15 +288,37 @@ addEducationButton.addEventListener('click', function () {
   educationContainer.appendChild(newFields);
 })
 
-btnNext6.addEventListener("click", () => {
 
 
-  if (validEducation()) {
-    console.log('next5');
-    if (currentStep < steps.length - 1) {
-      currentStep++;
-      showStep(currentStep);
+// Add new work experience
+const addWorkExperienceButton = document.getElementById('add-work-experience');
+const workExperienceContainer = document.getElementById('work-experience');
+addWorkExperienceButton.addEventListener('click', function () {
+  const newFields = document.createElement('div');
+  newFields.classList.add('work-experience-entry');
 
-    }
-  }
+  newFields.innerHTML = `
+        <input
+          type="text"
+          name="job-title[]"
+          class="bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Job Title"
+          required
+        />
+        <input
+          type="text"
+          name="company[]"
+          class="bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Company"
+          required
+        />
+        <input
+          type="text"
+          name="years[]"
+          class="bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Years"
+          required
+        />
+    `;
+  workExperienceContainer.appendChild(newFields);
 })
