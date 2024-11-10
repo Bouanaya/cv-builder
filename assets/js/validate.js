@@ -173,28 +173,32 @@ const validhobbies = () => {
 }
 const validEducation = () => {
     const allInputs = document.querySelectorAll('#education input');
- 
+    let allFilled = true;
 
     allInputs.forEach(input => {
-        if (input.value.trim() !== "") {
-console.log('hello');
-
-         
-
-
-        }
-        else if (input.value.trim() === '') {
-
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Please fill out all education fields.!",
-                footer: '<a href="#">Why do I have this issue?</a>'
-            });
-
-
+        if (input.value.trim() === '') {
+            allFilled = false;
         }
     });
 
+    if (!allFilled) {
+       
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please fill out all education fields.!",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
+    } else {
+        Swal.fire({
+            icon: "success",
+            title: "Oops...",
+            text: "you education has been saved!",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
+      return true
+    }
 
 }
+
+ 
