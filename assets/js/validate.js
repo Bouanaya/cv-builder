@@ -40,7 +40,7 @@ function PersonalInformation() {
     // Phone validation
     const phone = document.getElementById('phone');
     const phoneError = document.getElementById('phone-error');
-    const phonePattern = /^[0-9]{3}-[0-9]{2}-[0-9]{3}$/;
+    const phonePattern = /^[0-9]{3}-[0-9]{2}--[0-9]{2}--[0-9]{2}-[0-9]{2}$/;
     if (!phonePattern.test(phone.value)) {
         phoneError.classList.remove('hidden');
        

@@ -1,3 +1,12 @@
 .hidden {
     display: none;
 }
+
+.cv__icon { width: 16px; height: 16px; fill: currentColor; }
+    .cv__icon-wrapper { display: flex; align-items: center; gap: 0.5rem; }
+    .cv__tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .cv__tag { background-color: #e0e0e0; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; }
+    .cv__list { list-style: none; padding-left: 0; }
+    .cv__section-title { font-size: 1.125rem; font-weight: bold; color: #333; margin-bottom: 0.5rem; }
+    .cv__section-title--main { font-size: 1.5rem; font-weight: 600; color: #4a90e2; }
+    .cv__bar { border-top: 2px solid #4a90e2; margin-top: 1rem; }
