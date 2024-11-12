@@ -40,7 +40,7 @@ btnNext2.addEventListener("click", () => {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
-      DataInformationpersonnel()
+   
 
     }
   }
@@ -56,7 +56,7 @@ btnNext3.addEventListener("click", () => {
       currentStep++;
       showStep(currentStep);
      
-      DataInformationpersonnel()
+   
     }
   }
 })
@@ -77,7 +77,7 @@ btnNext4.addEventListener("click", () => {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
-      DataInformationpersonnel()
+    
 
      
 
@@ -95,6 +95,8 @@ btnNext5.addEventListener("click", () => {
       showStep(currentStep);
       DataInformationpersonnel()
 
+      
+
     }
   }
 })
@@ -107,7 +109,7 @@ btnNext6.addEventListener("click", () => {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
-      DataInformationpersonnel()
+      
 
     }
   }
@@ -304,6 +306,36 @@ count++
         />
     `;
   workExperienceContainer.appendChild(newFields);
+})
+
+// Add new work experience
+const addCertificationsButton = document.getElementById('add-certification');
+const CertificationsContainer = document.getElementById('certifications');
+var count = 1
+addCertificationsButton.addEventListener('click', function () {
+  const newFields = document.createElement('div');
+count++
+  newFields.innerHTML = `
+     <label
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  > Certifications ${count}</label
+                >
+       <input
+                    type="text"
+                    name="certification"
+                    class="certification bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Certification"
+                    required
+                  />
+                  <input
+                    type="url"
+                    name="certification-link"
+                    class=" certification-link bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Certification Link"
+                    required
+                  />
+    `;
+    CertificationsContainer.appendChild(newFields);
 })
 
 
