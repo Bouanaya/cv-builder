@@ -40,6 +40,7 @@ btnNext2.addEventListener("click", () => {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
+      
    
 
     }
@@ -149,10 +150,19 @@ const addTechnicalSkillButton = document.getElementById('add-technical-skill');
 const technicalSkillsContainer = document.getElementById('technical-skills');
 
 addTechnicalSkillButton.addEventListener('click', () => {
-  const newInput = document.createElement('input');
-  newInput.type = 'text';
-  newInput.className = 'technical-skills bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500';
-  technicalSkillsContainer.appendChild(newInput);
+  let inputOrigine = document.querySelector(".technical-skills ").cloneNode(true)
+  inputOrigine.value =""
+  let btnremove =document.createElement("button")
+  btnremove.className = "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+  btnremove.textContent = "remove"
+  btnremove.type = "button"
+  let semiparent = document.createElement("div")
+  semiparent.appendChild(inputOrigine)
+  semiparent.appendChild(btnremove)
+  technicalSkillsContainer.appendChild(semiparent);
+  btnremove.addEventListener("click", ()=>{
+    semiparent.remove()
+  })
 });
 
 // Add Soft Skill input 
@@ -342,11 +352,7 @@ count++
     CertificationsContainer.appendChild(newFields);
 })
 
-
-
-
-
-
+const btnCV1 = document.querySelector("#btnCv1")
 
 
 
