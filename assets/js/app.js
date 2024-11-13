@@ -137,7 +137,7 @@ btnNext8.addEventListener("click", () => {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
-      DataInformationpersonnel()
+  
 
     }
   }
@@ -153,7 +153,7 @@ addTechnicalSkillButton.addEventListener('click', () => {
   let inputOrigine = document.querySelector(".technical-skills ").cloneNode(true)
   inputOrigine.value =""
   let btnremove =document.createElement("button")
-  btnremove.className = "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+  btnremove.className = "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
   btnremove.textContent = "remove"
   btnremove.type = "button"
   let semiparent = document.createElement("div")
@@ -164,6 +164,9 @@ addTechnicalSkillButton.addEventListener('click', () => {
     semiparent.remove()
   })
 });
+ 
+
+
 
 // Add Soft Skill input 
 const addSoftSkillButton = document.getElementById('add-soft-skill');
@@ -352,7 +355,7 @@ count++
     CertificationsContainer.appendChild(newFields);
 })
 
-const btnCV1 = document.querySelector("#btnCv1")
+
 
 
 

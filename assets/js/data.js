@@ -1,16 +1,6 @@
+const container = document.querySelector(".container")
+let data = []
  const formData ={}
-
-//  {
-//   lang: {
-//       arabic:'native',
-//       french:'beginner',
-//   }
-// }
- 
-
-
-
-// //      // Form data  DataInformationpersonnel
 const DataInformationpersonnel = () => {
   const fullName = document.getElementById('full-name').value;
   const profilePicture = document.getElementById('profile-picture').files[0];
@@ -35,13 +25,13 @@ const DataInformationpersonnel = () => {
   const years  = Array.from(document.querySelectorAll(".years"))
   //experience work
   const titleExperience = Array.from(document.querySelectorAll(".job-title "))
-  const companyExperience =  Array.from(document.querySelectorAll(".company"))
+  const companyExperience =Array.from(document.querySelectorAll(".company"))
   // softand tech 
   tech = TechnicalSkills.map(x=>x.value)
   formData.tech = tech
   soft = softSkills.map(x=>x.value)
   formData.soft = soft
-  
+
   //language
   lang = language.map(x=>x.value)
  
@@ -52,16 +42,10 @@ const DataInformationpersonnel = () => {
 //hobbies
   hobby = hobbies.map(x=>x.value)
   formData.hobby = hobby
-  console.log(hobby);
-
-  
-  //Education 
  
 
-
-
-
-
+  //Education 
+ 
   educate = education.map(x=>x.value)
   formData.education = educate
   degreEduacation = degree.map(x=>x.value)
@@ -70,50 +54,13 @@ const DataInformationpersonnel = () => {
   formData.stady = stady
   educationYears = years.map(x=>x.value)
   formData.educationYears = educationYears
-  console.log(educate);
-  
  
-  
+ 
   //experience
   exepriencetitle = titleExperience.map(x=>x.value)
   formData.exepriencetitle =exepriencetitle
   companyExper = companyExperience.map(x=>x.value)
   formData.companyExper = companyExper
-
-    
- 
- 
-  
- 
- 
- 
-
-  
-  //  formData = {
-  //   fullName,
-  //   profilePicture,
-  //   email,
-  //   phone,
-  //   website,
-  //   linkedin,
-  //   github,
-  //   jobTitle,
-  //   editor,
-  //   tech,
-  //   soft,
-  //   lang,
-  //   langlevel,
-  //   hobby,
-  //   educate,
-  //   degreEduacation,
-  //   stady,
-  //   educationYears,
-  //   exepriencetitle,
-  //   companyExper
-    
-    
-
-  // };
 console.log(formData);
 
 const CV1 = document.querySelector(".CV1")
@@ -317,11 +264,79 @@ CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols
          
         </div>
         <div>
+<div class="flex justify-center">
  <button type="button" class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
         print <img src="../assets/icons/impremer.svg" alt="">
           </button>
+</div>
 </div>`
-const CV2 = document.querySelector(".CV2")
+
+
+
+}
+
+const datainfocv2 = ()=>{
+  const fullName = document.getElementById('full-name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const website = document.getElementById('website').value;
+  const linkedin = document.getElementById('linkedin').value;
+  const github = document.getElementById('github').value;
+  const jobTitle = document.getElementById("job-title").value
+  const editor = document.getElementById('my-textarea').value 
+  const TechnicalSkills = Array.from(document.querySelectorAll(".technical-skills"))
+  const softSkills = Array.from(document.querySelectorAll(".soft-skills"))
+  //langauge
+  const language = Array.from(document.querySelectorAll(".language"))
+  const languagelevel= Array.from(document.querySelectorAll(".language-level")) 
+  //hobbies
+  const hobbies = Array.from(document.querySelectorAll(".hobbies"))
+  //education
+  const education = Array.from(document.querySelectorAll(".education"))
+  const degree = Array.from(document.querySelectorAll(".degree"))
+  const field = Array.from(document.querySelectorAll(".field"))
+  const years  = Array.from(document.querySelectorAll(".years"))
+  //experience work
+  const titleExperience = Array.from(document.querySelectorAll(".job-title "))
+  const companyExperience =Array.from(document.querySelectorAll(".company"))
+  // softand tech 
+  tech = TechnicalSkills.map(x=>x.value)
+  formData.tech = tech
+  soft = softSkills.map(x=>x.value)
+  formData.soft = soft
+
+  //language
+  lang = language.map(x=>x.value)
+ 
+  langlevel = languagelevel.map(x=>x.value)
+ formData.lang ={} 
+  lang.forEach((e,i)=>{formData.lang[e] = langlevel[i]})
+
+//hobbies
+  hobby = hobbies.map(x=>x.value)
+  formData.hobby = hobby
+ 
+
+  //Education 
+ 
+  educate = education.map(x=>x.value)
+  formData.education = educate
+  degreEduacation = degree.map(x=>x.value)
+  formData.degreEduacation = degreEduacation
+  stady = field.map(x=>x.value)
+  formData.stady = stady
+  educationYears = years.map(x=>x.value)
+  formData.educationYears = educationYears
+ 
+ 
+  //experience
+  exepriencetitle = titleExperience.map(x=>x.value)
+  formData.exepriencetitle =exepriencetitle
+  companyExper = companyExperience.map(x=>x.value)
+  formData.companyExper = companyExper
+console.log(formData);
+
+  const CV2 = document.querySelector(".CV2")
 CV2.innerHTML =`
 <div class="bg-gray-100 font-sans ">
     <div class="container mx-auto py-8 px-4">
@@ -377,12 +392,29 @@ CV2.innerHTML =`
 
 </div>
 <div>
+<div class="flex justify-center">
  <button type="button" class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
         print <img src="../assets/icons/impremer.svg" alt="">
           </button>
 </div>
+</div>
    
 `
-
-
 }
+
+const btnCV1 =document.querySelector("#btnCv1")
+const btnCV2 =document.querySelector("#btnCv2")
+btnCV1.addEventListener("click", ()=>{
+  DataInformationpersonnel()
+  console.log(container);
+  container.style.display ="none"
+  
+
+})
+btnCV2.addEventListener("click", ()=>{
+  datainfocv2()
+  container.style.display ="none"
+
+
+
+})
