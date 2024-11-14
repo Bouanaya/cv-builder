@@ -66,7 +66,9 @@
                 <input
                   class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                   aria-describedby="file_input_help"
-              
+                  id="profile-picture"
+                  type="file"
+                  
                 />
                 <div
                   id="profile-picture-error"
@@ -401,10 +403,12 @@
             <form id="education-form">
               <div class="mb-4">
                 <label
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  class="labelEducation block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >Education</label
                 >
+                <div class="education">
                 <div id="education">
+
                   <input
                     type="text"
                     name="education"
@@ -434,6 +438,7 @@
                     required
                   />
                 </div>
+              </div>
                 <button
                   type="button"
                   id="add-education"
@@ -492,7 +497,7 @@
                     placeholder="Years"
                     required
                   />
-                  <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 mb-3 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+                  <textarea id="message" rows="4" class=" message block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 mb-3 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
                 </div>
                 <button
                   type="button"

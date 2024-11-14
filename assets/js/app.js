@@ -176,7 +176,7 @@ addSoftSkillButton.addEventListener('click', () => {
   let inputOrigine = document.querySelector(".soft-skills").cloneNode(true)
   inputOrigine.value =""
   let btnremove = document.createElement("button")
-  btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  btnremove.className = "btnremove text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
   btnremove.textContent = "remove"
   btnremove.type = "button"
   let semiparent = document.createElement("div")
@@ -216,9 +216,23 @@ addLanguageButton.addEventListener('click', function () {
 
 
   });
+  let btnremove =document.createElement("button")
+  btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  btnremove.textContent = "remove"
+  btnremove.type = "button"
+const divConetent = document.createElement("div")
 
-  languagesContainer.appendChild(newInput);
-  languagesContainer.appendChild(newSelect);
+
+ 
+
+  divConetent.appendChild(newInput);
+  divConetent.appendChild(newSelect);
+  divConetent.appendChild(btnremove);
+  languagesContainer.appendChild(divConetent)
+btnremove.addEventListener("click", ()=>{
+  divConetent.remove()
+})
+  
 
 })
 
@@ -244,6 +258,7 @@ addHobbyButton.addEventListener('click', function () {
   semiparent.appendChild(btnremove)
   hobbiesContainer.appendChild(semiparent);
   btnremove.addEventListener("click", ()=>{
+
     semiparent.remove()
   // Append new input to the container
   
@@ -254,49 +269,31 @@ addHobbyButton.addEventListener('click', function () {
 
 // add input education 
 const addEducationButton = document.getElementById('add-education');
-const educationContainer = document.getElementById('education');
-var count = 1
+const educationContainer = document.querySelector('.education');
+const educationContainers = document.getElementById('education');
+const labelEducation = document.querySelector(".labelEducation")
+let count = 1
 // Add new education fields
 addEducationButton.addEventListener('click', function () {
-  const newFields = document.createElement('div');
-  count++
-  newFields.innerHTML = `
-           <label
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >Education ${count}</label
-                >
-                <div id="education">
-                  <input
-                    type="text"
-                    name="education"
-                    class=" education bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Institution"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="degree"
-                    class=" degree bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Degree"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="field"
-                    class=" field bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Field of Study"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="years"
-                    class="years bg-gray-50 border border-gray-300  mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Years"
-                    required
-                  />
+count++
+labelEducation.textContent = `Education ${count}`
+const cloneEducation = educationContainers.cloneNode(true)
+cloneEducation.removeAttribute("id")
+let btnremove = document.createElement("button")
+btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+btnremove.textContent = "remove"
+btnremove.type = "button"
+let semiparent = document.createElement("div")
+semiparent.appendChild(labelEducation)
+semiparent.appendChild(cloneEducation)
+semiparent.appendChild(btnremove)
+educationContainer.appendChild(semiparent)
+btnremove.addEventListener("click", ()=>{
+  count--
+  semiparent.remove()
+ 
 
-          `;
-  educationContainer.appendChild(newFields);
+})
 })
 
 
@@ -304,10 +301,11 @@ addEducationButton.addEventListener('click', function () {
 // Add new work experience
 const addWorkExperienceButton = document.getElementById('add-work-experience');
 const workExperienceContainer = document.getElementById('work-experience');
-var count = 1
+
 addWorkExperienceButton.addEventListener('click', function () {
   const newFields = document.createElement('div');
   newFields.classList.add('work-experience-entry');
+  let count = 1
 count++
   newFields.innerHTML = `
      <label
@@ -343,9 +341,10 @@ count++
 // Add new work experience
 const addCertificationsButton = document.getElementById('add-certification');
 const CertificationsContainer = document.getElementById('certifications');
-var count = 1
+
 addCertificationsButton.addEventListener('click', function () {
   const newFields = document.createElement('div');
+  let count = 1
 count++
   newFields.innerHTML = `
      <label

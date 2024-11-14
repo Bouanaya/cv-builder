@@ -26,6 +26,8 @@ const DataInformationpersonnel = () => {
   //experience work
   const titleExperience = Array.from(document.querySelectorAll(".job-title "))
   const companyExperience = Array.from(document.querySelectorAll(".company"))
+  const yearsExperience = Array.from(document.querySelectorAll(".years")) 
+  const messageExperience = Array.from(document.querySelectorAll(".message"))
   // softand tech 
   tech = TechnicalSkills.map(x => x.value)
   formData.tech = tech
@@ -72,10 +74,25 @@ const DataInformationpersonnel = () => {
 
   //experience
   exepriencetitle = titleExperience.map(x => x.value)
-  formData.exepriencetitle = exepriencetitle
   companyExper = companyExperience.map(x => x.value)
-  formData.companyExper = companyExper
-  console.log(formData);
+  yersExperiences = yearsExperience.map(x=> x.value)
+  messageExperiences =  messageExperience.map(x=>x.value)
+  
+  
+  let exepriencall = []
+  let educationdataz = {}
+  for (let i = 0; i < exepriencetitle.length; i++) {
+    exepriencall.push(
+      educationdataz = {
+        title: exepriencetitle[i],
+        company: companyExper[i],
+        yers: yersExperiences[i],
+        content: messageExperiences[i]
+      }
+    )
+  
+  }
+  console.log(exepriencall);
 
   const CV1 = document.querySelector(".CV1")
   CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols-3 gap-8 w-full mx-auto max-w-screen-lg p-8 rounded-lg">
@@ -196,34 +213,28 @@ const DataInformationpersonnel = () => {
           <section class="cv__section cv__section--main w-full">
             <h4 class="cv__section-title cv__section-title--main">Experience</h4>
             <ul class="cv__event">
-              <li>
+            ${
+              exepriencall.map(x=>
+`
+  <li>
                 <div class="grid grid-cols-3 gap-3">
-                  <h5 class="cv__section-title cv__section-title--sm">City Councilor</h5>
-                  <span class="justify-self-center">Pawnee, Indiana</span>
-                  <span class="justify-self-end">Jan 2012 – Present</span>
+                  <h5 class="cv__section-title cv__section-title--sm">${x.title}</h5>
+                  <span class="justify-self-center">${x.company}</span>
+                  <span class="justify-self-end">${x.yers}</span>
                 </div>
                 <div class="cv__desc">
                   <ul>
-                    <li>Creating policies to improve local government services.</li>
-                    <li>Working closely with the Mayor on various initiatives.</li>
-                    <li>Serving the people of Pawnee with integrity and compassion.</li>
+                    <li>${x.content}</li>
                   </ul>
                 </div>
               </li>
-              <li>
-                <div class="grid grid-cols-3 gap-3">
-                  <h5 class="cv__section-title cv__section-title--sm">Deputy Director of Parks</h5>
-                  <span class="justify-self-center">Pawnee, Indiana</span>
-                  <span class="justify-self-end">Jan 2009 – Present</span>
-                </div>
-                <div class="cv__desc">
-                  <ul>
-                    <li>Managing and improving parks for the city of Pawnee.</li>
-                    <li>Leading the team that ensures outdoor activities are accessible to all residents.</li>
-                    <li>Advocating for sustainable development in public spaces.</li>
-                  </ul>
-                </div>
-              </li>
+`
+
+              ).join("")
+              
+            }
+            
+               
             </ul>
           </section>
     
@@ -316,6 +327,8 @@ const datainfocv2 = () => {
   //experience work
   const titleExperience = Array.from(document.querySelectorAll(".job-title "))
   const companyExperience = Array.from(document.querySelectorAll(".company"))
+  const yearsExperience = Array.from(document.querySelectorAll(".years")) 
+  const messageExperience = Array.from(document.querySelectorAll(".message"))
   // softand tech 
   tech = TechnicalSkills.map(x => x.value)
   formData.tech = tech
@@ -367,9 +380,25 @@ const datainfocv2 = () => {
 
   //experience
   exepriencetitle = titleExperience.map(x => x.value)
-  formData.exepriencetitle = exepriencetitle
   companyExper = companyExperience.map(x => x.value)
-  formData.companyExper = companyExper
+  yersExperiences = yearsExperience.map(x=> x.value)
+  messageExperiences =  messageExperience.map(x=>x.value)
+  
+  
+  let exepriencall = []
+  let educationdataz = {}
+  for (let i = 0; i < exepriencetitle.length; i++) {
+    exepriencall.push(
+      educationdataz = {
+        title: exepriencetitle[i],
+        company: companyExper[i],
+        yers: yersExperiences[i],
+        content: messageExperiences[i]
+      }
+    )
+  
+  }
+  console.log(exepriencall);
 
 
   const CV2 = document.querySelector(".CV2")
@@ -394,11 +423,17 @@ const datainfocv2 = () => {
 
             <h2 class="text-xl font-semibold mt-4 mb-2">Experience</h2>
             <div class="mb-4">
-                <h3 class="text-lg font-semibold">Web Developer, ABC Company</h3>
-                <p class="text-gray-700">Developed and maintained company website, implementing responsive design and
-                    optimizing performance. Collaborated with the design team to create visually appealing web pages.
+            ${
+              exepriencall.map(x=>
+                `
+                 <h3 class="text-lg font-semibold">${x.title} - ${x.yers}</h3>
+                <p class="text-gray-700">${x.company}
                 </p>
-                <p class="text-gray-600">January 2020 - Present</p>
+                <p class="text-gray-600">${x.content}</p>
+                `
+              )
+            }
+               
             </div>
 
             <div class="mb-4">
