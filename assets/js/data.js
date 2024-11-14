@@ -103,7 +103,7 @@ const DataInformationpersonnel = () => {
           <img class="object-cover aspect-square max-w-[212px] max-h-[212px] border-white border-8 mx-auto" id="blah"  alt="Leslie Knope's profile image">
           
           <div class="text-center">
-            <h2 class="text-primary text-xl uppercase font-bold tracking-wide text-indigo-600">${fullName}</h2>
+            <h2 class="text-primary text-xl uppercase font-bold tracking-wide  ">${fullName}</h2>
             <h3 class="text-base uppercase mb-1 font-bold">${jobTitle}</h3>
           </div>
     
@@ -403,7 +403,7 @@ const datainfocv2 = () => {
 
   const CV2 = document.querySelector(".CV2")
   CV2.innerHTML = `
-<div class="bg-gray-100 font-sans ">
+<div class="bg font-sans ">
     <div class="container mx-auto py-8 px-4">
         <div class="bg-white p-6 rounded-lg shadow-lg">
             <h1 class="text-3xl font-semibold">${fullName}</h1>
@@ -453,7 +453,7 @@ const datainfocv2 = () => {
                 <p class="text-gray-600">${x.stady}</p> `
 
 
-  )
+  ).join("")
     }
              
             </div>
@@ -471,7 +471,7 @@ const datainfocv2 = () => {
 
 </div>
 <div>
-<div class="flex justify-center">
+<div class="flex justify-center bg-transparent">
  <button type="button" class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
         print <img src="../assets/icons/impremer.svg" alt="">
           </button>

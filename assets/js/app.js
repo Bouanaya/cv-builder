@@ -243,17 +243,22 @@ btnremove.addEventListener("click", ()=>{
  //add hobbies 
 const addHobbyButton = document.getElementById('add-hobby');
 const hobbiesContainer = document.getElementById('hobbies');
+ 
 
 // Add new input  for hobbies
 addHobbyButton.addEventListener('click', function () {
   // Create new hobby input  
+ 
   let inputOrigine = document.querySelector(".soft-skills").cloneNode(true)
   inputOrigine.value =""
+  inputOrigine.placeholder="Hobbies"
   let btnremove = document.createElement("button")
   btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
   btnremove.textContent = "remove"
   btnremove.type = "button"
   let semiparent = document.createElement("div")
+ 
+ 
   semiparent.appendChild(inputOrigine)
   semiparent.appendChild(btnremove)
   hobbiesContainer.appendChild(semiparent);
@@ -301,72 +306,57 @@ btnremove.addEventListener("click", ()=>{
 // Add new work experience
 const addWorkExperienceButton = document.getElementById('add-work-experience');
 const workExperienceContainer = document.getElementById('work-experience');
+const workExperienceContainers = document.querySelector('.work-experience');
+const labelExperience = document.querySelector(".labelExperience")
+ 
 
 addWorkExperienceButton.addEventListener('click', function () {
-  const newFields = document.createElement('div');
-  newFields.classList.add('work-experience-entry');
-  let count = 1
-count++
-  newFields.innerHTML = `
-     <label
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >Work Experience ${count}</label
-                >
-        <input
-          type="text"
-       
-          class="job-title bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Job Title"
-          required
-        />
-        <input
-          type="text"
-   
-          class=" company bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Company"
-          required
-        />
-        <input
-          type="text"
-          class=" years bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Years"
-          required
-        />
-                  <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 mb-3 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+  count++
+  labelExperience.textContent = `Work Experience ${count}`
+ const CertificationsOrigin = workExperienceContainers.cloneNode(true)
+ let btnremove = document.createElement("button")
+btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+btnremove.textContent = "remove"
+btnremove.type = "button"
+let semiparent = document.createElement("div")
+semiparent.appendChild(labelEducation)
+semiparent.appendChild(CertificationsOrigin)
+semiparent.appendChild(btnremove)
+workExperienceContainer.appendChild(semiparent)
+btnremove.addEventListener("click", ()=>{
+  count--
+  semiparent.remove()
+ 
 
-    `;
-  workExperienceContainer.appendChild(newFields);
+})
 })
 
-// Add new work experience
+// Add new work Certifications
 const addCertificationsButton = document.getElementById('add-certification');
 const CertificationsContainer = document.getElementById('certifications');
+const CertificationsContainers = document.querySelector('.certifications');
+const labelCertification = document.querySelector(".labelCertification")
+ 
 
 addCertificationsButton.addEventListener('click', function () {
-  const newFields = document.createElement('div');
-  let count = 1
-count++
-  newFields.innerHTML = `
-     <label
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  > Certifications ${count}</label
-                >
-       <input
-                    type="text"
-                    name="certification"
-                    class="certification bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Certification"
-                    required
-                  />
-                  <input
-                    type="url"
-                    name="certification-link"
-                    class=" certification-link bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Certification Link"
-                    required
-                  />
-    `;
-    CertificationsContainer.appendChild(newFields);
+   count++
+   labelCertification.textContent = `Certification ${count}`
+ const Certificationsorigin = CertificationsContainers.cloneNode(true)
+ let btnremove = document.createElement("button")
+btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+btnremove.textContent = "remove"
+btnremove.type = "button"
+let semiparent = document.createElement("div")
+semiparent.appendChild(labelEducation)
+semiparent.appendChild(Certificationsorigin)
+semiparent.appendChild(btnremove)
+CertificationsContainer.appendChild(semiparent)
+btnremove.addEventListener("click", ()=>{
+  count--
+  semiparent.remove()
+ 
+
+})
 })
 
 
