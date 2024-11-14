@@ -244,14 +244,14 @@ btnremove.addEventListener("click", ()=>{
 const addHobbyButton = document.getElementById('add-hobby');
 const hobbiesContainer = document.getElementById('hobbies');
  
-
+let counthobbies = 1
 // Add new input  for hobbies
 addHobbyButton.addEventListener('click', function () {
   // Create new hobby input  
- 
+ counthobbies++
   let inputOrigine = document.querySelector(".soft-skills").cloneNode(true)
   inputOrigine.value =""
-  inputOrigine.placeholder="Hobbies"
+  inputOrigine.placeholder=`Hobbies-${counthobbies}`
   let btnremove = document.createElement("button")
   btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
   btnremove.textContent = "remove"
@@ -309,17 +309,18 @@ const workExperienceContainer = document.getElementById('work-experience');
 const workExperienceContainers = document.querySelector('.work-experience');
 const labelExperience = document.querySelector(".labelExperience")
  
-
+let countExpercience = 1
 addWorkExperienceButton.addEventListener('click', function () {
-  count++
-  labelExperience.textContent = `Work Experience ${count}`
+  countExpercience++
+  let labelExperiences = labelEducation.cloneNode() 
+  labelExperiences.textContent = `Work Experience-${countExpercience}`
  const CertificationsOrigin = workExperienceContainers.cloneNode(true)
  let btnremove = document.createElement("button")
 btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
 btnremove.textContent = "remove"
 btnremove.type = "button"
 let semiparent = document.createElement("div")
-semiparent.appendChild(labelEducation)
+semiparent.appendChild(labelExperiences)
 semiparent.appendChild(CertificationsOrigin)
 semiparent.appendChild(btnremove)
 workExperienceContainer.appendChild(semiparent)
