@@ -153,7 +153,7 @@ addTechnicalSkillButton.addEventListener('click', () => {
   let inputOrigine = document.querySelector(".technical-skills ").cloneNode(true)
   inputOrigine.value =""
   let btnremove =document.createElement("button")
-  btnremove.className = "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
   btnremove.textContent = "remove"
   btnremove.type = "button"
   let semiparent = document.createElement("div")
@@ -173,11 +173,19 @@ const addSoftSkillButton = document.getElementById('add-soft-skill');
 const softSkillsContainer = document.getElementById('soft-skills');
 
 addSoftSkillButton.addEventListener('click', () => {
-  const newInput = document.createElement('input');
-  newInput.type = 'text';
-  newInput.className = 'soft-skills bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500';
-  softSkillsContainer.appendChild(newInput);
-});
+  let inputOrigine = document.querySelector(".soft-skills").cloneNode(true)
+  inputOrigine.value =""
+  let btnremove = document.createElement("button")
+  btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  btnremove.textContent = "remove"
+  btnremove.type = "button"
+  let semiparent = document.createElement("div")
+  semiparent.appendChild(inputOrigine)
+  semiparent.appendChild(btnremove)
+  softSkillsContainer.appendChild(semiparent);
+  btnremove.addEventListener("click", ()=>{
+    semiparent.remove()
+});})
 
 // Add new input for languages
 const form = document.getElementById('languages-form');
@@ -225,14 +233,21 @@ const hobbiesContainer = document.getElementById('hobbies');
 // Add new input  for hobbies
 addHobbyButton.addEventListener('click', function () {
   // Create new hobby input  
-  const newInput = document.createElement('input');
-  newInput.type = 'text';
-  newInput.className = ' hobbies bg-gray-50 w-full border mb-2 border-gray-300 text-gray-900 text-sm rounded-lg';
-  newInput.placeholder = 'Hobby';
-  newInput.required = true;
-
+  let inputOrigine = document.querySelector(".soft-skills").cloneNode(true)
+  inputOrigine.value =""
+  let btnremove = document.createElement("button")
+  btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+  btnremove.textContent = "remove"
+  btnremove.type = "button"
+  let semiparent = document.createElement("div")
+  semiparent.appendChild(inputOrigine)
+  semiparent.appendChild(btnremove)
+  hobbiesContainer.appendChild(semiparent);
+  btnremove.addEventListener("click", ()=>{
+    semiparent.remove()
   // Append new input to the container
-  hobbiesContainer.appendChild(newInput);
+  
+})
 })
 
  

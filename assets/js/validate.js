@@ -27,7 +27,7 @@ function PersonalInformation() {
     // Email validation
     const email = document.getElementById('email');
     const emailError = document.getElementById('email-error');
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(email.value)) {
         emailError.classList.remove('hidden');
         

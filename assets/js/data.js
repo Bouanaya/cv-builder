@@ -1,6 +1,6 @@
 const container = document.querySelector(".container")
 let data = []
- const formData ={}
+const formData = {}
 const DataInformationpersonnel = () => {
   const fullName = document.getElementById('full-name').value;
   const profilePicture = document.getElementById('profile-picture').files[0];
@@ -10,66 +10,80 @@ const DataInformationpersonnel = () => {
   const linkedin = document.getElementById('linkedin').value;
   const github = document.getElementById('github').value;
   const jobTitle = document.getElementById("job-title").value
-  const editor = document.getElementById('my-textarea').value 
+  const editor = quill.root.innerHTML
   const TechnicalSkills = Array.from(document.querySelectorAll(".technical-skills"))
   const softSkills = Array.from(document.querySelectorAll(".soft-skills"))
   //langauge
   const language = Array.from(document.querySelectorAll(".language"))
-  const languagelevel= Array.from(document.querySelectorAll(".language-level")) 
+  const languagelevel = Array.from(document.querySelectorAll(".language-level"))
   //hobbies
   const hobbies = Array.from(document.querySelectorAll(".hobbies"))
   //education
   const education = Array.from(document.querySelectorAll(".education"))
   const degree = Array.from(document.querySelectorAll(".degree"))
   const field = Array.from(document.querySelectorAll(".field"))
-  const years  = Array.from(document.querySelectorAll(".years"))
+  const years = Array.from(document.querySelectorAll(".years"))
   //experience work
   const titleExperience = Array.from(document.querySelectorAll(".job-title "))
-  const companyExperience =Array.from(document.querySelectorAll(".company"))
+  const companyExperience = Array.from(document.querySelectorAll(".company"))
   // softand tech 
-  tech = TechnicalSkills.map(x=>x.value)
+  tech = TechnicalSkills.map(x => x.value)
   formData.tech = tech
-  soft = softSkills.map(x=>x.value)
+  soft = softSkills.map(x => x.value)
   formData.soft = soft
 
   //language
-  lang = language.map(x=>x.value)
- 
-  langlevel = languagelevel.map(x=>x.value)
- formData.lang ={} 
-  lang.forEach((e,i)=>{formData.lang[e] = langlevel[i]})
+  lang = language.map(x => x.value)
 
-//hobbies
-  hobby = hobbies.map(x=>x.value)
+  langlevel = languagelevel.map(x => x.value)
+  formData.lang = {}
+  lang.forEach((e, i) => { formData.lang[e] = langlevel[i] })
+
+  //hobbies
+  hobby = hobbies.map(x => x.value)
   formData.hobby = hobby
- 
+
 
   //Education 
- 
-  educate = education.map(x=>x.value)
-  formData.education = educate
-  degreEduacation = degree.map(x=>x.value)
-  formData.degreEduacation = degreEduacation
-  stady = field.map(x=>x.value)
-  formData.stady = stady
-  educationYears = years.map(x=>x.value)
-  formData.educationYears = educationYears
- 
- 
-  //experience
-  exepriencetitle = titleExperience.map(x=>x.value)
-  formData.exepriencetitle =exepriencetitle
-  companyExper = companyExperience.map(x=>x.value)
-  formData.companyExper = companyExper
-console.log(formData);
 
-const CV1 = document.querySelector(".CV1")
-CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols-3 gap-8 w-full mx-auto max-w-screen-lg p-8 rounded-lg">
+  educate = education.map(x => x.value)
+  formData.education = educate
+  degreEduacation = degree.map(x => x.value)
+  formData.degreEduacation = degreEduacation
+  stady = field.map(x => x.value)
+  formData.stady = stady
+  educationYears = years.map(x => x.value)
+  formData.educationYears = educationYears
+
+  let educationdata = []
+  let educationdatas = {}
+  for (let i = 0; i < educate.length; i++) {
+    educationdata.push(
+      educationdatas = {
+        educat: educate[i],
+        degreEduacation: degreEduacation[i],
+        stady: stady[i],
+        educationYears: educationYears[i]
+      }
+    )
+
+  }
+
+
+  //experience
+  exepriencetitle = titleExperience.map(x => x.value)
+  formData.exepriencetitle = exepriencetitle
+  companyExper = companyExperience.map(x => x.value)
+  formData.companyExper = companyExper
+  console.log(formData);
+
+  const CV1 = document.querySelector(".CV1")
+  CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols-3 gap-8 w-full mx-auto max-w-screen-lg p-8 rounded-lg">
     
         <!-- Left Column: Personal Information & Contact -->
         <div class="flex flex-col gap-4 p-6 py-7 col-span-1 bg-slate-50 rounded-lg shadow-md">
           
-          <img class="object-cover aspect-square max-w-[212px] max-h-[212px] border-white border-8 mx-auto" src="${profilePicture}" alt="Leslie Knope's profile image">
+          <img class="object-cover aspect-square max-w-[212px] max-h-[212px] border-white border-8 mx-auto" id="blah"  alt="Leslie Knope's profile image">
           
           <div class="text-center">
             <h2 class="text-primary text-xl uppercase font-bold tracking-wide text-indigo-600">${fullName}</h2>
@@ -115,9 +129,9 @@ CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols
             <section class="cv__section">
               <h3 class="capitalize cv__section-title">Technical Skills</h3>
               <ul class="font-light cv__tags">
-                ${formData.tech.map(item=>
-                `<li class="cv__tag">${item}</li>`
-              ).join("")}
+                ${formData.tech.map(item =>
+    `<li class="cv__tag">${item}</li>`
+  ).join("")}
               </ul>
             </section>
     
@@ -125,9 +139,9 @@ CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols
             <section class="cv__section">
               <h3 class="capitalize cv__section-title">Soft Skills</h3>
               <ul class="font-light cv__list">
-                ${formData.soft.map(item=>
-                `<li>${item}</li>`
-              ).join("")}
+                ${formData.soft.map(item =>
+    `<li>${item}</li>`
+  ).join("")}
               </ul>
             </section>
     
@@ -135,19 +149,18 @@ CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols
             <section class="cv__section">
               <h3 class="capitalize cv__section-title">Languages</h3>
               <ul class="">
-                ${
-                   (function  () {
-                    let content = ''
-                    for(const key in formData.lang) {
-                      content +=  `<li class="flex justify-between pr-4">
+                ${(function () {
+      let content = ''
+      for (const key in formData.lang) {
+        content += `<li class="flex justify-between pr-4">
                      <span>${key}</span>
                      <span class="font-light">${formData.lang[key]}</span>
                    </li>`
-                     }
-                     return content
-                   }
-                   )()
-                }
+      }
+      return content
+    }
+    )()
+    }
               
               </ul>
             </section>
@@ -157,9 +170,9 @@ CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols
               <h3 class="capitalize cv__section-title">hobbies</h3>
               <ul class="font-light cv__list">
 
-              ${formData?.hobby?.map(item=>
-                `<li>${item}</li>`
-              ).join("")}
+              ${formData?.hobby?.map(item =>
+      `<li>${item}</li>`
+    ).join("")}
               </ul>
 
             </section>
@@ -220,17 +233,21 @@ CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols
           <section class="cv__section cv__section--main w-full">
             <h4 class="cv__section-title cv__section-title--main">Education</h4>
             <ul class="cv__event">
-              <li>
+            ${educationdata.map(x =>
+      `<li>
                 <div class="gap-3 flex justify-between">
-                  <h5 class="cv__section-title cv__section-title--sm">{}</h5>
-                  <span class="justify-self-center">Indiana University</span>
+                  <h5 class="cv__section-title cv__section-title--sm">${x.educat}</h5>
+                  <span class="justify-self-center">${x.educationYears}</span>
                 </div>
                 <div class="cv__desc">
                   <ul>
-                    <li>Studied policies for sustainable public spaces.</li>
-                    <li>Gained experience in government project management.</li>
+                    <li>${x.degreEduacation}</li>
+                    <li>${x.stady}</li>
                   </ul>
-                </div>
+                </div>`
+    ).join('')
+    }
+              
               </li>
             </ul>
           </section>
@@ -275,7 +292,7 @@ CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols
 
 }
 
-const datainfocv2 = ()=>{
+const datainfocv2 = () => {
   const fullName = document.getElementById('full-name').value;
   const email = document.getElementById('email').value;
   const phone = document.getElementById('phone').value;
@@ -283,61 +300,80 @@ const datainfocv2 = ()=>{
   const linkedin = document.getElementById('linkedin').value;
   const github = document.getElementById('github').value;
   const jobTitle = document.getElementById("job-title").value
-  const editor = document.getElementById('my-textarea').value 
+  const editor = document.getElementById('my-textarea').value
   const TechnicalSkills = Array.from(document.querySelectorAll(".technical-skills"))
   const softSkills = Array.from(document.querySelectorAll(".soft-skills"))
   //langauge
   const language = Array.from(document.querySelectorAll(".language"))
-  const languagelevel= Array.from(document.querySelectorAll(".language-level")) 
+  const languagelevel = Array.from(document.querySelectorAll(".language-level"))
   //hobbies
   const hobbies = Array.from(document.querySelectorAll(".hobbies"))
   //education
   const education = Array.from(document.querySelectorAll(".education"))
   const degree = Array.from(document.querySelectorAll(".degree"))
   const field = Array.from(document.querySelectorAll(".field"))
-  const years  = Array.from(document.querySelectorAll(".years"))
+  const years = Array.from(document.querySelectorAll(".years"))
   //experience work
   const titleExperience = Array.from(document.querySelectorAll(".job-title "))
-  const companyExperience =Array.from(document.querySelectorAll(".company"))
+  const companyExperience = Array.from(document.querySelectorAll(".company"))
   // softand tech 
-  tech = TechnicalSkills.map(x=>x.value)
+  tech = TechnicalSkills.map(x => x.value)
   formData.tech = tech
-  soft = softSkills.map(x=>x.value)
+  soft = softSkills.map(x => x.value)
   formData.soft = soft
 
   //language
-  lang = language.map(x=>x.value)
- 
-  langlevel = languagelevel.map(x=>x.value)
- formData.lang ={} 
-  lang.forEach((e,i)=>{formData.lang[e] = langlevel[i]})
+  lang = language.map(x => x.value)
 
-//hobbies
-  hobby = hobbies.map(x=>x.value)
+  langlevel = languagelevel.map(x => x.value)
+  formData.lang = {}
+  lang.forEach((e, i) => { formData.lang[e] = langlevel[i] })
+
+  //hobbies
+  hobby = hobbies.map(x => x.value)
   formData.hobby = hobby
- 
+
 
   //Education 
- 
-  educate = education.map(x=>x.value)
+
+  educate = education.map(x => x.value)
   formData.education = educate
-  degreEduacation = degree.map(x=>x.value)
+  degreEduacation = degree.map(x => x.value)
   formData.degreEduacation = degreEduacation
-  stady = field.map(x=>x.value)
+  stady = field.map(x => x.value)
   formData.stady = stady
-  educationYears = years.map(x=>x.value)
+  educationYears = years.map(x => x.value)
   formData.educationYears = educationYears
- 
- 
+
+  let educationdata = []
+  let educationdatas = {}
+  for (let i = 0; i < educate.length; i++) {
+    educationdata.push(
+      educationdatas = {
+        educat: educate[i],
+        degreEduacation: degreEduacation[i],
+        stady: stady[i],
+        educationYears: educationYears[i]
+      }
+    )
+
+  }
+
+
+
+
+
+
+
   //experience
-  exepriencetitle = titleExperience.map(x=>x.value)
-  formData.exepriencetitle =exepriencetitle
-  companyExper = companyExperience.map(x=>x.value)
+  exepriencetitle = titleExperience.map(x => x.value)
+  formData.exepriencetitle = exepriencetitle
+  companyExper = companyExperience.map(x => x.value)
   formData.companyExper = companyExper
-console.log(formData);
+
 
   const CV2 = document.querySelector(".CV2")
-CV2.innerHTML =`
+  CV2.innerHTML = `
 <div class="bg-gray-100 font-sans ">
     <div class="container mx-auto py-8 px-4">
         <div class="bg-white p-6 rounded-lg shadow-lg">
@@ -351,9 +387,9 @@ CV2.innerHTML =`
 
             <h2 class="text-xl font-semibold mt-4 mb-2">Skills</h2>
             <ul class="list-disc list-inside text-gray-700">
-                  ${formData.soft.map(item=>
-                `<li>${item}</li>`
-              ).join("")}
+                  ${formData.soft.map(item =>
+    `<li>${item}</li>`
+  ).join("")}
             </ul>
 
             <h2 class="text-xl font-semibold mt-4 mb-2">Experience</h2>
@@ -373,10 +409,18 @@ CV2.innerHTML =`
             </div>
 
             <h2 class="text-xl font-semibold mt-4 mb-2">Education</h2>
-            <div class="mb-4">
-                <h3 class="text-lg font-semibold">Bachelor of Science in Computer Science</h3>
-                <p class="text-gray-700">University of Example</p>
-                <p class="text-gray-600">Graduated in May 2018</p>
+            <div class="mb-4 ">
+       ${educationdata.map(x =>
+
+    `<h3 class="text-lg font-semibold">${x.educat}</h3>
+                <p class="text-gray-700">${x.degreEduacation}</p>
+                <p class="text-gray-600">${x.educationYears}</p>
+                <p class="text-gray-600">${x.stady}</p> `
+
+
+  )
+    }
+             
             </div>
 
             <h2 class="text-xl font-semibold mt-4 mb-2">Contact</h2>
@@ -402,19 +446,20 @@ CV2.innerHTML =`
 `
 }
 
-const btnCV1 =document.querySelector("#btnCv1")
-const btnCV2 =document.querySelector("#btnCv2")
-btnCV1.addEventListener("click", ()=>{
+const btnCV1 = document.querySelector("#btnCv1")
+const btnCV2 = document.querySelector("#btnCv2")
+btnCV1.addEventListener("click", () => {
   DataInformationpersonnel()
   console.log(container);
-  container.style.display ="none"
-  
+  container.style.display = "none"
+
 
 })
-btnCV2.addEventListener("click", ()=>{
+btnCV2.addEventListener("click", () => {
   datainfocv2()
-  container.style.display ="none"
+  container.style.display = "none"
 
 
 
 })
+
