@@ -25,18 +25,15 @@ const showStep = (stepIndex) => {
 };
 
 btnNext1.addEventListener("click", () => {
-  if (true) {
+  if (PersonalInformation()) {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
-      
-     
-
     }
   }
 })
 btnNext2.addEventListener("click", () => {
-  if (true) {
+  if (JobTitlevalidation()) {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
@@ -51,8 +48,7 @@ btnNext2.addEventListener("click", () => {
 btnNext3.addEventListener("click", () => {
 
 
-  if (true) {
-    console.log('next3');
+  if (valtechnicalSkills()) {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);
@@ -73,7 +69,7 @@ prevButtons.forEach(button => {
 });
 
 btnNext4.addEventListener("click", () => {
-  if (true) {
+  if (validlanguage()) {
 
     if (currentStep < steps.length - 1) {
       currentStep++;
@@ -89,7 +85,7 @@ btnNext4.addEventListener("click", () => {
 btnNext5.addEventListener("click", () => {
 
 
-  if (true) {
+  if (validhobbies()) {
 
     if (currentStep < steps.length - 1) {
       currentStep++;
@@ -106,7 +102,7 @@ btnNext5.addEventListener("click", () => {
 btnNext6.addEventListener("click", () => {
 
 
-  if (true) {
+  if (validEducation()) {
     if (currentStep < steps.length - 1) {
       currentStep++;
       showStep(currentStep);

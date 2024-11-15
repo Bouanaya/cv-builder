@@ -94,6 +94,12 @@ const JobTitlevalidation = () => {
     const jobTitle = document.getElementById('job-title');
     const jobTitleError = document.getElementById('job-title-error');
     if (jobTitle.value.trim() === '') {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please add Job Title!",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
         jobTitleError.classList.remove('hidden');
         isValid = false;
     } else {
@@ -101,51 +107,61 @@ const JobTitlevalidation = () => {
     }
 
     // Editor (textarea) validation
-    const editor = document.getElementById('editor');
-    const editorError = document.getElementById('editor-error');
-    if (editor.value.trim() === '') {
-        editorError.classList.remove('hidden');
-        isValid = false;
-    } else {
-        editorError.classList.add('hidden');
-    }
-    return isValid;
-}
 
-// add skills technical
-const technicalSkills = document.querySelectorAll('technical-skills');
-const softSkills = document.querySelectorAll('soft-skills');
-const valtechnicalSkills = () => {
+   
     
-
-
-    // Check if there is any value in the technical skills input
-    let hasTechnicalSkill = false;
-    for (let input of technicalSkills) {
-        if (input.value.trim() !== '') {
-            hasTechnicalSkill = true;
-            console.log(input.value);
-
-            break;
-        }
-    }
-
-    // Check if there is any value in the soft skills input
-    let hasSoftSkill = false;
-    for (let input of softSkills) {
-        if (input.value.trim() !== '') {
-            hasSoftSkill = true;
-          
-            break;
-        }
-    }
-
-    // If no technical skills are provided, show an error message
-    if (!hasTechnicalSkill) {
+    const editor = quill.root.innerHTML
+    if (editor === '<p><br></p>') {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Please add at least one technical skill!",
+            text: "Please add Summary !",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
+        return false; 
+    } else {
+        return true
+    }
+ 
+}
+
+// add skills technical
+const technicalSkills = Array.from(document.querySelectorAll('.technical-skills'));
+console.log(technicalSkills);
+
+const softSkills = Array.from(document.querySelectorAll('.soft-skills'));
+const valtechnicalSkills = () => {
+    // Check if there is any value in the technical skills input
+    let hasTechnicalSkill = false;
+    technicalSkills.forEach(x=>{
+        if(x.value.trim() !== '') {
+            hasTechnicalSkill = true;
+            
+        }
+       
+    })
+   
+    
+    
+
+    // Check if there is any value in the soft skills input
+    let hasSoftSkill = false;
+    softSkills.forEach(x=>{
+        if (x.value.trim() !== "") {
+            hasSoftSkill = true
+        }
+        
+    })
+  
+console.log(hasSoftSkill);
+console.log(hasTechnicalSkill);
+
+    // If no technical skills are provided, show an error message
+    if (!hasTechnicalSkill || !hasSoftSkill ) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please add at least one skill!",
             footer: '<a href="#">Why do I have this issue?</a>'
         });
         return false; 
@@ -164,7 +180,7 @@ const validlanguage = () => {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "Please add at least one language !",
+            text: "Please add  language !",
             footer: '<a href="#">Why do I have this issue?</a>'
         });
 

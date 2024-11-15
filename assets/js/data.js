@@ -19,7 +19,7 @@ const DataInformationpersonnel = () => {
   //hobbies
   const hobbies = Array.from(document.querySelectorAll(".hobbies"))
   //education
-  const education = Array.from(document.querySelectorAll(".education"))
+  const education = Array.from(document.querySelectorAll(".educationInp"))
   const degree = Array.from(document.querySelectorAll(".degree"))
   const field = Array.from(document.querySelectorAll(".field"))
   const years = Array.from(document.querySelectorAll(".years"))
@@ -36,7 +36,6 @@ const DataInformationpersonnel = () => {
 
   //language
   lang = language.map(x => x.value)
-
   langlevel = languagelevel.map(x => x.value)
   formData.lang = {}
   lang.forEach((e, i) => { formData.lang[e] = langlevel[i] })
@@ -112,7 +111,7 @@ const DataInformationpersonnel = () => {
  }
 
 
-  let profilePictures = URL.createObjectURL(profilePicture);
+  let profilePictures =  URL.createObjectURL(profilePicture);
   const CV1 = document.querySelector(".CV1")
   CV1.innerHTML = `<div class='content'>
   <div class="cv  shadow-lg mt-6 bg-white  relative grid grid-cols-3 gap-8 w-full mx-auto max-w-screen-lg p-8 rounded-lg">
@@ -131,31 +130,19 @@ const DataInformationpersonnel = () => {
             <h4 class="cv__section-title">Contact</h4>
             <div class="flex flex-col gap-3">
               <div class="cv__icon-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-</svg>
-
-                <a href="mailto:lknope@parksdept.com" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${email}</a>
+           <a href="mailto:lknope@parksdept.com" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${email}</a>
               </div>
              
                <div class="cv__icon-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
                 <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${phone}</a>
               </div>
                <div class="cv__icon-wrapper">
-                  <img src="../icons/internet.svg" alt="">
-               
                 <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${website}</a>
               </div>
                <div class="cv__icon-wrapper">
-                  <img src="../icons/linkden.svg" alt="">
-
                 <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${linkedin}</a>
               </div>
               <div class="cv__icon-wrapper">
-                  <img src="../icons/linkden.svg" alt="">
-          
                 <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${github}</a>
               </div>
             </div>
@@ -326,16 +313,18 @@ const DataInformationpersonnel = () => {
          
         </div>
         <div>
+
+</div>
+</div>
 <div class="flex justify-center">
- <button type="button" class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+ <button type="button" onclick="print()" class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
         print  
           </button>
            <button type="button" onclick='generatePDF()' class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
         telecharger pdf
           </button>
 </div>
-</div>
-</div>`
+`
 
 
 
@@ -358,7 +347,11 @@ const datainfocv2 = () => {
   //hobbies
   const hobbies = Array.from(document.querySelectorAll(".hobbies"))
   //education
-  const education = Array.from(document.querySelectorAll(".education"))
+  const education = Array.from(document.querySelectorAll(".educationInp"))
+ education.forEach(x=>console.log(x)
+ )
+ 
+  
   const degree = Array.from(document.querySelectorAll(".degree"))
   const field = Array.from(document.querySelectorAll(".field"))
   const years = Array.from(document.querySelectorAll(".years"))
@@ -388,13 +381,11 @@ const datainfocv2 = () => {
   //Education 
 
   educate = education.map(x => x.value)
-  formData.education = educate
+  console.log(educate);
+  
   degreEduacation = degree.map(x => x.value)
-  formData.degreEduacation = degreEduacation
   stady = field.map(x => x.value)
-  formData.stady = stady
   educationYears = years.map(x => x.value)
-  formData.educationYears = educationYears
 
   let educationdata = []
   let educationdatas = {}
@@ -409,6 +400,10 @@ const datainfocv2 = () => {
     )
 
   }
+ console.log(educationdata);
+ 
+ 
+  
 
 
 
@@ -488,7 +483,7 @@ console.log(certificationData);
                 </p>
                 <p class="text-gray-600">${x.content}</p>
                 `
-              )
+              ).join("")
             }
                
             </div>
@@ -529,7 +524,7 @@ console.log(certificationData);
 </div>
 <div>
 <div class="flex justify-center bg-transparent">
- <button type="button" class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+ <button  type="button" onclick="print()" class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
         print  
           </button>
            <button type="button" onclick='generatePDF()' class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
@@ -573,4 +568,17 @@ function generatePDF() {
 
  
   html2pdf().set(options).from(element).save();
+}
+
+
+
+///print
+function print() {
+  const contentprint = document.querySelector(".content").innerHTML;
+  const content =document.body.innerHTML;
+  document.body.innerHTML = contentprint;
+  window.print()
+  document.body.innerHTML = content
+  location.reload()
+  
 }
