@@ -283,6 +283,7 @@ addEducationButton.addEventListener('click', function () {
 count++
 labelEducation.textContent = `Education ${count}`
 const cloneEducation = educationContainers.cloneNode(true)
+cloneEducation.querySelectorAll('input').forEach(x=> x.value = "")
 cloneEducation.removeAttribute("id")
 let btnremove = document.createElement("button")
 btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
@@ -313,6 +314,8 @@ let countExpercience = 1
 addWorkExperienceButton.addEventListener('click', function () {
   countExpercience++
   let labelExperiences = labelEducation.cloneNode() 
+  labelExperiences.querySelectorAll('.inputo').forEach(x=> x.value = "")
+
   labelExperiences.textContent = `Work Experience-${countExpercience}`
  const CertificationsOrigin = workExperienceContainers.cloneNode(true)
  let btnremove = document.createElement("button")
@@ -325,7 +328,7 @@ semiparent.appendChild(CertificationsOrigin)
 semiparent.appendChild(btnremove)
 workExperienceContainer.appendChild(semiparent)
 btnremove.addEventListener("click", ()=>{
-  count--
+  countExpercience--
   semiparent.remove()
  
 
@@ -338,17 +341,18 @@ const CertificationsContainer = document.getElementById('certifications');
 const CertificationsContainers = document.querySelector('.certifications');
 const labelCertification = document.querySelector(".labelCertification")
  
-
+let countCertification = 1
 addCertificationsButton.addEventListener('click', function () {
-   count++
-   labelCertification.textContent = `Certification ${count}`
+  let labelCertifications = labelCertification.cloneNode()
+  countCertification++
+  labelCertifications.textContent = `Certification-${countCertification}`
  const Certificationsorigin = CertificationsContainers.cloneNode(true)
  let btnremove = document.createElement("button")
 btnremove.className = "text-white  bg-Red hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
 btnremove.textContent = "remove"
 btnremove.type = "button"
 let semiparent = document.createElement("div")
-semiparent.appendChild(labelEducation)
+semiparent.appendChild(labelCertifications)
 semiparent.appendChild(Certificationsorigin)
 semiparent.appendChild(btnremove)
 CertificationsContainer.appendChild(semiparent)

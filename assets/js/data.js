@@ -92,15 +92,35 @@ const DataInformationpersonnel = () => {
     )
   
   }
-  console.log(exepriencall);
+ 
+  ///certification 
 
+  const certification  = Array.from(document.querySelectorAll(".certification "))
+  const certificationlink = Array.from(document.querySelectorAll(".certification-link "))
+  let certificationData = []
+  let certifications ={}
+
+ for (let i = 0; i < certification.length; i++) {
+  certifications={
+    certification :certification[i].value,
+    certificatlink: certificationlink[i].value
+  }
+  certificationData.push(certifications)
+
+  
+  
+ }
+
+
+  let profilePictures = URL.createObjectURL(profilePicture);
   const CV1 = document.querySelector(".CV1")
-  CV1.innerHTML = `<div class="cv  shadow-lg mt-6 bg-white relative grid grid-cols-3 gap-8 w-full mx-auto max-w-screen-lg p-8 rounded-lg">
+  CV1.innerHTML = `<div class='content'>
+  <div class="cv  shadow-lg mt-6 bg-white  relative grid grid-cols-3 gap-8 w-full mx-auto max-w-screen-lg p-8 rounded-lg">
     
         <!-- Left Column: Personal Information & Contact -->
-        <div class="flex flex-col gap-4 p-6 py-7 col-span-1 bg-slate-50 rounded-lg shadow-md">
+        <div class="flex flex-col gap-4 p-6 py-7 col-span-1 bg-slate-50 rounded-lg shadow-md  "  >
           
-          <img class="object-cover aspect-square max-w-[212px] max-h-[212px] border-white border-8 mx-auto" id="blah"  alt="Leslie Knope's profile image">
+          <img class="object-cover aspect-square max-w-[212px] max-h-[212px] border-white border-8 mx-auto" id="blah" src="${profilePictures}"  alt="Leslie Knope's profile image">
           
           <div class="text-center">
             <h2 class="text-primary text-xl uppercase font-bold tracking-wide  ">${fullName}</h2>
@@ -124,16 +144,18 @@ const DataInformationpersonnel = () => {
                 <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${phone}</a>
               </div>
                <div class="cv__icon-wrapper">
-               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" /></svg>
+                  <img src="../icons/internet.svg" alt="">
+               
                 <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${website}</a>
               </div>
                <div class="cv__icon-wrapper">
-                <svg class="cv__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 1H3c-1.1 0-1.99.9-1.99 2L1 21c0 1.1.9 2 1.99 2H21c1.1 0 1.99-.9 1.99-2L23 3c0-1.1-.9-2-1.99-2zM21 19H3V5h18v14z"/></svg>
+                  <img src="../icons/linkden.svg" alt="">
+
                 <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${linkedin}</a>
               </div>
               <div class="cv__icon-wrapper">
-                <svg class="cv__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 1H3c-1.1 0-1.99.9-1.99 2L1 21c0 1.1.9 2 1.99 2H21c1.1 0 1.99-.9 1.99-2L23 3c0-1.1-.9-2-1.99-2zM21 19H3V5h18v14z"/></svg>
+                  <img src="../icons/linkden.svg" alt="">
+          
                 <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${github}</a>
               </div>
             </div>
@@ -267,9 +289,12 @@ const DataInformationpersonnel = () => {
     
           <!-- Projects Section -->
           <section class="cv__section cv__section--main w-full">
-            <h4 class="cv__section-title cv__section-title--main">Projects</h4>
+            <h4 class="cv__section-title cv__section-title--main">Certification</h4>
             <ul class="cv__event">
-              <li>
+            ${
+              certificationData.map(x=>
+                `
+                <li>
                 <div class="flex justify-between">
                   <h5 class="cv__section-title cv__section-title--sm flex gap-2 w-full justify-between">
                     <span>Lot 48</span>
@@ -280,12 +305,21 @@ const DataInformationpersonnel = () => {
                 </a>
                 <div class="cv__desc">
                   <ul>
-                    <li>Renovation of park Lot 48 to increase community space.</li>
-                    <li>Collaborated with local businesses and community members.</li>
-                    <li>Built a sustainable public park that will last for generations.</li>
+                    <li>${x.certification}</li>
+                    <li>${x.certificationlink}</li>
+
+                    
                   </ul>
                 </div>
               </li>
+                
+                `
+
+
+
+              ).join("")
+            }
+              
             </ul>
           </section>
         </div>
@@ -294,8 +328,12 @@ const DataInformationpersonnel = () => {
         <div>
 <div class="flex justify-center">
  <button type="button" class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-        print <img src="../assets/icons/impremer.svg" alt="">
+        print  
           </button>
+           <button type="button" onclick='generatePDF()' class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+        telecharger pdf
+          </button>
+</div>
 </div>
 </div>`
 
@@ -398,14 +436,33 @@ const datainfocv2 = () => {
     )
   
   }
-  console.log(exepriencall);
+///certification 
+  const certification  = Array.from(document.querySelectorAll(".certification "))
+  const certificationlink = Array.from(document.querySelectorAll(".certification-link "))
+  let certificationData = []
+  let certifications ={}
+
+ for (let i = 0; i < certification.length; i++) {
+  certifications={
+    certification :certification[i].value,
+    certificatlink: certificationlink[i].value
+  }
+  certificationData.push(certifications)
+
+  
+  
+ }
+
+ 
+console.log(certificationData);
+
 
 
   const CV2 = document.querySelector(".CV2")
   CV2.innerHTML = `
 <div class="bg font-sans ">
-    <div class="container mx-auto py-8 px-4">
-        <div class="bg-white p-6 rounded-lg shadow-lg">
+  <div class="container mx-auto py-8 px-4">
+        <div class="bg-white p-6 rounded-lg shadow-lg content "  >
             <h1 class="text-3xl font-semibold">${fullName}</h1>
             <p class="text-gray-600">${jobTitle}</p>
 
@@ -473,8 +530,12 @@ const datainfocv2 = () => {
 <div>
 <div class="flex justify-center bg-transparent">
  <button type="button" class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-        print <img src="../assets/icons/impremer.svg" alt="">
+        print  
           </button>
+           <button type="button" onclick='generatePDF()' class="flex items-center my-4 font-bold text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800  gap-2 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+        telecharger pdf
+          </button>
+          
 </div>
 </div>
    
@@ -498,3 +559,18 @@ btnCV2.addEventListener("click", () => {
 
 })
 
+function generatePDF() {
+  const element = document.querySelector('.content'); 
+
+  
+  const options = {
+      margin:       0,       
+      filename:     'document.pdf',   
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 4 }, 
+      jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+
+ 
+  html2pdf().set(options).from(element).save();
+}
