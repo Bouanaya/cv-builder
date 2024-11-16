@@ -120,7 +120,7 @@ const JobTitlevalidation = () => {
         });
         return false; 
     } else {
-        return true
+        return isValid
     }
  
 }

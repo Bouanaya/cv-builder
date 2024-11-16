@@ -102,7 +102,7 @@ const DataInformationpersonnel = () => {
  for (let i = 0; i < certification.length; i++) {
   certifications={
     certification :certification[i].value,
-    certificatlink: certificationlink[i].value
+    certificatlink:certificationlink[i].value
   }
   certificationData.push(certifications)
 
@@ -284,7 +284,7 @@ const DataInformationpersonnel = () => {
                 <li>
                 <div class="flex justify-between">
                   <h5 class="cv__section-title cv__section-title--sm flex gap-2 w-full justify-between">
-                    <span>Lot 48</span>
+                    <span>${x.certification}</span>
                   </h5>
                 </div>
                 <a class="w-fit flex items-center font-medium italic text-indigo-600 hover:text-indigo-800" rel="noopener" href="https://www.pawnee.gov" aria-label="Open project in new tab">
@@ -292,8 +292,8 @@ const DataInformationpersonnel = () => {
                 </a>
                 <div class="cv__desc">
                   <ul>
-                    <li>${x.certification}</li>
-                    <li>${x.certificationlink}</li>
+                   
+                    <li>${x.certificatlink}</li>
 
                     
                   </ul>
@@ -338,7 +338,7 @@ const datainfocv2 = () => {
   const linkedin = document.getElementById('linkedin').value;
   const github = document.getElementById('github').value;
   const jobTitle = document.getElementById("job-title").value
-  const editor = document.getElementById('my-textarea').value
+  const editor = quill.root.innerHTML
   const TechnicalSkills = Array.from(document.querySelectorAll(".technical-skills"))
   const softSkills = Array.from(document.querySelectorAll(".soft-skills"))
   //langauge
@@ -432,17 +432,17 @@ const datainfocv2 = () => {
   
   }
 ///certification 
-  const certification  = Array.from(document.querySelectorAll(".certification "))
-  const certificationlink = Array.from(document.querySelectorAll(".certification-link "))
+  const certification  = Array.from(document.querySelectorAll(".certification"))
+  const certificationlink = Array.from(document.querySelectorAll(".certification-link"))
   let certificationData = []
   let certifications ={}
 
  for (let i = 0; i < certification.length; i++) {
-  certifications={
+
+  certificationData.push(  certifications={
     certification :certification[i].value,
     certificatlink: certificationlink[i].value
-  }
-  certificationData.push(certifications)
+  })
 
   
   
