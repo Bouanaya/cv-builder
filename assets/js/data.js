@@ -287,9 +287,6 @@ const DataInformationpersonnel = () => {
                     <span>${x.certification}</span>
                   </h5>
                 </div>
-                <a class="w-fit flex items-center font-medium italic text-indigo-600 hover:text-indigo-800" rel="noopener" href="https://www.pawnee.gov" aria-label="Open project in new tab">
-                  City of Pawnee, Indiana <svg class="ml-1 size-4"><use href=""></use></svg>
-                </a>
                 <div class="cv__desc">
                   <ul>
                    
