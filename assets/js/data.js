@@ -117,7 +117,7 @@ const DataInformationpersonnel = () => {
   <div class="cv  shadow-lg mt-6 bg-white  relative grid grid-cols-3 gap-8 w-full mx-auto max-w-screen-lg p-8 rounded-lg">
     
         <!-- Left Column: Personal Information & Contact -->
-        <div class="flex flex-col gap-4 p-6 py-7 col-span-1 bg-slate-50 rounded-lg shadow-md  "  >
+        <div class="flex flex-col gap-4  py-7 col-span-1 bg-slate-50 rounded-lg shadow-md  "  >
           
           <img class="object-cover aspect-square max-w-[212px] max-h-[212px] border-white border-8 mx-auto" id="blah" src="${profilePictures}"  alt="Leslie Knope's profile image">
           
@@ -130,20 +130,20 @@ const DataInformationpersonnel = () => {
             <h4 class="cv__section-title">Contact</h4>
             <div class="flex flex-col gap-3">
               <div class="cv__icon-wrapper">
-           <a href="mailto:lknope@parksdept.com" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${email}</a>
+           <a href="${email}" rel="noopener" class="text-indigo-600 hover:text-indigo-800 text-wrap">${email}</a>
               </div>
              
                <div class="cv__icon-wrapper">
-                <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${phone}</a>
+                <a   rel="noopener" class="text-indigo-600 hover:text-indigo-800 text-wrap text-sm ">${phone}</a>
               </div>
                <div class="cv__icon-wrapper">
-                <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${website}</a>
+                <a   rel="noopener" class="text-indigo-600 hover:text-indigo-800 text-wrap  text-sm">${website}</a>
               </div>
                <div class="cv__icon-wrapper">
-                <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${linkedin}</a>
+                <a   rel="noopener" class="text-indigo-600 hover:text-indigo-800 text-wrap text-sm">${linkedin}</a>
               </div>
               <div class="cv__icon-wrapper">
-                <a href="tel:317-660-2160" rel="noopener" class="text-indigo-600 hover:text-indigo-800">${github}</a>
+                <a   rel="noopener" class="text-indigo-600 hover:text-indigo-800 text-wrap text-sm">${github}</a>
               </div>
             </div>
           </section>
